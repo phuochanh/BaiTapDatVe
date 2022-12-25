@@ -1,0 +1,98 @@
+body {
+  background: black !important;
+}
+.text{
+  color: white;
+  margin-top: 30px;
+  
+}
+.screen{
+  width: 900px;
+  height: 40px;
+  background: rgb(255, 170, 0);
+  margin: auto;
+  
+  
+}
+.seat {
+  width: 50px;
+  height: 50px;
+  color: yellow;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+}
+
+
+.chair {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  margin-left: 10px;
+  margin-top: 10px;
+
+  &.number {
+    background: transparent;
+    color: yellow;
+  }
+
+  &.booked {
+    background: rgb(92, 92, 92);
+  }
+
+  &.available {
+    background: white;
+  }
+
+  &.selected {
+    background: green;
+  }
+}
+
+.txtNote{
+  color: rgb(231, 183, 39);
+}
+// className="chair booked"
+
+.square{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-top: 40px;
+  margin-left: 30px;
+}
+.selected{
+  background: green;
+}
+.reserved{
+  background: rgb(92, 92, 92);
+}
+.empty{
+  background: white;
+  // border: 2px solid rgb(218, 153, 23);
+  
+}
+.seats{
+margin-top: 38px;
+color: white;
+}
+.text-center{
+  padding-left: 450px;
+}
+.chooseSeat{
+  color: black;
+  background: rgb(255, 170, 0);
+  width: 300px;
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 600px;
+}
+.tblColor{
+  color: white;
+}
+.textCenter{
+  margin-left: 310px;
+  margin-top: 40px;
+}
