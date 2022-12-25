@@ -21,6 +21,7 @@ class DatVeXemPhim extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { isStarted: false }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -36,8 +37,9 @@ class DatVeXemPhim extends Component {
     this.props.startSelectingAction({ name, seat });
     if (name === "" && seat === ""){
       alert("Please Enter your Name and Number of Seats");
+      return;
     }
-
+    this.setState({isStarted: true})
   };
 
   confirmSelecting = () => {
@@ -113,6 +115,8 @@ class DatVeXemPhim extends Component {
 
   render() {
     const { name, seat, selectedChairs, reservedChairs, isConfirmed } = this.props;
+    const { isStarted } = this.state;
+
     return (
       <div>
         <p className="txtNote">
@@ -125,7 +129,8 @@ class DatVeXemPhim extends Component {
               <input
                 ref={this.inputRefName}
                 type="text"
-                required=""
+                required=""                
+                disabled={isStarted}
                 name="name"
               />
             </label>
@@ -135,6 +140,7 @@ class DatVeXemPhim extends Component {
                 ref={this.inputRefSeat}
                 type="number"
                 required=""
+                disabled={isStarted}
                 name="number"
               />
             </label>
@@ -185,13 +191,13 @@ class DatVeXemPhim extends Component {
               </tr>
               <tr>
                 <td>
-                  <textarea name="" id="" cols="30" rows="2" value={isConfirmed ? name : ""}></textarea>
+                  <textarea className="infor" cols="30" rows="2" value={isConfirmed ? name : ""} disabled></textarea>
                 </td>
                 <td>
-                <textarea name="" id="" cols="30" rows="2" value={isConfirmed ? seat : ""}></textarea>
+                <textarea className="infor" cols="30" rows="2" value={isConfirmed ? seat : ""} disabled></textarea>
                 </td>
                 <td>
-                <textarea name="" id="" cols="30" rows="2" value={isConfirmed ? reservedChairs.map(e => `${e.selectedChairs[0]["row"]}${e.selectedChairs[0]["col"]}`) : ""}></textarea>
+                <textarea className="infor" cols="30" rows="2" value={isConfirmed ? reservedChairs[0].selectedChairs.map(e => `${e["row"]}${e["col"]+1}`) : ""} disabled></textarea>
                 </td>
               </tr>
             </tbody>

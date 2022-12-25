@@ -45,7 +45,7 @@ export const chairReducer = (state = DEFAULT_STATE, action) => {
       let found = false;
       for (let i = 0; i < chairs.length; i++) {
         let t_ = chairs[i];
-        if (t_.row == row && t_.col == col) {
+        if (t_.row === row && t_.col === col) {
           // Gỡ ra
           chairs.splice(i, 1);
           found = true;
@@ -55,8 +55,10 @@ export const chairReducer = (state = DEFAULT_STATE, action) => {
 
       if (!found) {
         // Thêm vô
+        console.log(row, col)
         chairs.push({ row, col });
       }
+      console.log(chairs)
       state.selectedChairs = chairs; // danh sách luôn được gán cho mảng mới hoàn toàn
 
       break;
